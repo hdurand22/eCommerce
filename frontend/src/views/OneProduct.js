@@ -8,10 +8,9 @@ import Message from '../components/Message';
 import { listProductDetails } from '../actions/productActions';
 
 const OneProduct = () => {
-    const [qty, setQty] = useState(0);
+    const [qty, setQty] = useState(1);
     const navigate = useNavigate();
     const params = useParams();
-    // const [product, setProduct] = useState({});
     const dispatch = useDispatch();
     const productDetails = useSelector(state => state.productDetails);
     const { loading, error, product } = productDetails;
