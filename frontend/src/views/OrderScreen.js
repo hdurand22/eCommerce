@@ -10,20 +10,21 @@ import { getOrderDetails, payOrder } from '../actions/orderActions';
 import { ORDER_PAY_RESET } from '../constants/orderConstants';
 
 const OrderScreen = () => {
-    const dispatch = useDispatch();
     const navigate = useNavigate();
     const params = useParams();
     const orderId = params.id;
     const [sdkReady, setSdkReady] = useState(false);
-
-    const userLogin = useSelector(state => state.userLogin);
-    const { userInfo } = userLogin;
+    const dispatch = useDispatch();
 
     const orderDetails = useSelector(state => state.orderDetails);
     const { order, loading, error } = orderDetails;
 
     const orderPay = useSelector(state => state.orderPay);
     const { loading: loadingPay, success: successPay } = orderPay;
+
+    const userLogin = useSelector(state => state.userLogin);
+    const { userInfo } = userLogin;
+
 
     if (!loading) {
         const addDecimals = (num) => {
@@ -65,6 +66,7 @@ const OrderScreen = () => {
     }, [dispatch, order, orderId, successPay])
 
     const successPaymentHandler = (paymentResult) => {
+        console.log(`orderId: ${orderId}`);
         console.log(paymentResult);
         dispatch(payOrder(orderId, paymentResult));
     }
