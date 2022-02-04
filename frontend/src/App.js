@@ -13,6 +13,7 @@ import ShippingScreen from './views/ShippingScreen';
 import PaymentMethodScreen from './views/PaymentMethodScreen';
 import PlaceOrderScreen from './views/PlaceOrderScreen';
 import OrderScreen from './views/OrderScreen';
+import UserListScreen from './views/UserListScreen';
 
 
 const App = () => {
@@ -32,6 +33,7 @@ const App = () => {
               <Route path='/product/:id' element={<OneProduct />} />
               <Route path='/cart' element={<CartScreen />} />
               <Route path='/cart/:id' element={<CartScreen />} />
+              <Route path='/admin/userlist' element={<UserListScreen />} />
               <Route path='/' exact element={<Home />} />
           </Routes>
         </Container>
