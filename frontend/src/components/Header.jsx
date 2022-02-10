@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { Navbar, Nav, Container, NavDropdown } from 'react-bootstrap';
 import { logout } from '../actions/userActions';
+import SearchBox from './SearchBox';
 
 const Header = () => {
     const dispatch = useDispatch();
@@ -19,7 +20,7 @@ const Header = () => {
             <Navbar bg="light" expand="lg" collapseOnSelect>
                 <Container>
                     <Navbar.Brand>
-                        <Link to='/' style={{textDecoration: 'none', color: '#343A40cc'}}>Small Kine Games</Link>
+                        <Link to='/' style={{textDecoration: 'none', color: '#343A40cc'}}>Small Kine Art</Link>
                     </Navbar.Brand>
                     <Navbar.Toggle aria-controls="basic-navbar-nav" />
                     <Navbar.Collapse id="basic-navbar-nav">
@@ -41,6 +42,7 @@ const Header = () => {
                             </NavDropdown>
                         )}
                     </Nav>
+                    <SearchBox />   
                     </Navbar.Collapse>
                 </Container>
             </Navbar>
